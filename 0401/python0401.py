@@ -167,6 +167,7 @@ except ValueError:
     print("type a number")
 """
 
+
 #input selection
 num = input("1) Paper 2) scissors 3) stone  ")
 
@@ -187,3 +188,6 @@ try:
 #if input is not number
 except ValueError:
     print("type a number")
+ 
+
+    
