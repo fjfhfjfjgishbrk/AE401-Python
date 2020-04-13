@@ -23,43 +23,53 @@ print("highest score:", str(scoreList[-1][0]), str(scoreList[-1][1]))
 print("average: " + str(sum(i for name,i in scoreList) / peopleNum))
 """
 
+def setApple():
+    temp = []
+    while True:
+        b = int(input("how many apples: "))
+        if b < 0:
+            print("type a positive number")
+        else:
+            temp.append(b)
+            break
+    while True:
+        b = int(input("how much per apple: "))
+        if b < 0:
+            print("type a positive number")
+        else:
+            temp.append(b)
+            break
+    return temp
+
 
 x = datetime.datetime.now()
-print("setting:")
-while True:
-    b = int(input("how many apples: "))
-    if b < 0:
-        print("type a positive number")
-    else:
-        apple = b
-        break
-while True:
-    b = int(input("how much per apple: "))
-    if b < 0:
-        print("type a positive number")
-    else:
-        price = b
-        break
+
+f = open("apple.txt", "r")
+temptxt = []
 appleSold = []
+for line in f.readlines():
+    temptxt.append(line.strip())
+f.close()
+if len(temptxt) < 3:
+    print("setting:")
+    setting = setApple()
+    apple = setting[0]
+    price = setting[1]
+else:
+    apple = int(temptxt[0])
+    price = int(temptxt[1])
+    for i in range(2, len(temptxt)):
+        appleSold.append(int(temptxt[i]))
+
+
 while True:
     print("type 1 for setting, 2 for import, 3 for selling, 4 for sum, 5 to see what is left, 6 to search, -1 to end")
     a = int(input("input: "))
     if a == 1:
         print("setting:")
-        while True:
-            b = int(input("how many apples: "))
-            if b < 0:
-                print("type a positive number")
-            else:
-                apple = b
-                break
-        while True:
-            b = int(input("how much per apple: "))
-            if b < 0:
-                print("type a positive number")
-            else:
-                price = b
-                break
+        setting = setApple()
+        apple = setting[0]
+        price = setting[1]
     elif a == 2:
         print("import:")
         print("type -1 to exit")
@@ -114,6 +124,12 @@ while True:
                 continue
             print("第" + str(appleSearch) + "筆交易: " + str(appleSold[appleSearch - 1]) + "顆蘋果")
     elif a == -1:
+        f = open("apple.txt", "w")
+        temptxt = [str(i) for i in appleSold]
+        temptxt.insert(0, str(price))
+        temptxt.insert(0, str(apple))
+        f.write("\n".join(temptxt))
+        f.close()
         break
     else:
         continue
