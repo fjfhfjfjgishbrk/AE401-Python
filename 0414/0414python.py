@@ -30,4 +30,4 @@ def a(i):
         return i + a(i + 1)
 print(a(0)) 
 
-    
+

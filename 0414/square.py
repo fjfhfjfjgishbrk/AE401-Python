@@ -5,7 +5,7 @@ import os
 black = (0, 0, 0)
 white = (255, 255, 255)
 pygame.init()
-size = (540, 960)
+size = (960, 540)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("my game")
 
@@ -23,7 +23,7 @@ while run:
             
     
     screen.fill(white)
-    drawrect(0, 0, 540, 960)
+    drawrect(0, 0, 960, 540)
     pygame.display.flip()
 
     
