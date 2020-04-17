@@ -32,7 +32,7 @@ import pygame
 import random as ran
 import os
 
-w = 320
+w = 1080
 h = 640
 
 def makesnow(n):
@@ -44,7 +44,7 @@ def makesnow(n):
 white = (255, 255, 255)
 pygame.init()
 size = (w, h)
-snow = makesnow(200)
+snow = makesnow(70)
 floorSnow = [0] * w
 for i in range(w):
     floorSnow[i] = []
@@ -57,6 +57,11 @@ def drawcircle(x, y, r, g, b):
     pygame.draw.circle(screen, (r, g, b), (x, y), 4, 0)
 def drawrect(x, y, r, g, b):
     pygame.draw.rect(screen, (r, g, b), [x - 2, y - 4, 4, 4], 0)
+def drawpoly(x, y):
+    pygame.draw.polygon(screen, (ran.randint(0, 255), ran.randint(0, 255), ran.randint(0, 255)), [pygame.Vector2(x, y), pygame.Vector2(x + 30, y), pygame.Vector2(x - 130, h), pygame.Vector2(x - 160, h)], 0)
+    if x - 160 > w:
+        return
+    drawpoly(x + 30, y)
     
 
 run = True
@@ -66,7 +71,7 @@ while run:
             run = False
             
     
-    screen.fill(white)
+    drawpoly(0, 0)
     for i in snow:
         drawcircle(i[0], i[1], i[2], i[3], i[4])
         i[1] += i[5]
