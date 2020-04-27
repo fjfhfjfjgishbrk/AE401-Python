@@ -14,6 +14,6 @@ while 1:
         break
 
     for i in text:
-        print(chr(ord(i)-7),end="")
+        print(chr(ord(i)-7), end="")
 
     print("", end="\n")
