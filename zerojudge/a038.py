@@ -3,7 +3,7 @@
 """
 Created on Tue Apr 07 21:34 2020
 
-@author: fdbfvuie
+@author: fdbfvuiea
 """
 
 num = input()
