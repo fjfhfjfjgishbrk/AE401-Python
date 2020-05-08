@@ -104,7 +104,6 @@ class Pad(pg.sprite.Sprite):
             self.rect.x = 0
 
 
-# 結束程式
 def gameover(m):
     global endMessage
     endMessage = m
