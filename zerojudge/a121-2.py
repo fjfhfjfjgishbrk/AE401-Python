@@ -1,7 +1,7 @@
 import time
 import math
 
-primeRange = 100000000
+primeRange = 1000
 prime = [True] * primeRange
 prime[0] = False
 prime[1] = False
@@ -17,12 +17,10 @@ for i in range(2, len(prime)):
 print(str(time.process_time()) + "s")
 
 printTime = 0
-f = open("primeBool.txt", "w")
+f = open("prime.txt", "w")
 for i in range(len(prime)):
     if prime[i]:
-        f.write("True,")
-    else:
-        f.write("False,")
+        f.write("{},".format(i))
     printTime = max(printTime - 1, 0)
     if time.process_time() % 1 == 0 and printTime == 0:
         print(str(round(i / 100000000 * 100, 4)) + "%")

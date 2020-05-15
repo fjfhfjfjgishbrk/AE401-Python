@@ -9,6 +9,7 @@ dy = 0
 score = 0
 clockTickTime = 5
 
+
 class segment(pygame.sprite.Sprite):
     def __init__(self, color, x, y):
         super().__init__()
@@ -19,6 +20,7 @@ class segment(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = self.x * (snakeWidth + margin)
         self.rect.y = self.y * (snakeHeight + margin)
+
 
 def newApple(color):
     spawnSpot = appleSpot[random.randrange(len(appleSpot))]
@@ -36,6 +38,7 @@ for i in range(16):
         appleSpot.append([i, j])
 
 snake = []
+snakeHead = [0, 0]
 allSprite = pygame.sprite.Group()
 for i in range(5):
     x = 5 + i
@@ -45,7 +48,6 @@ for i in range(5):
     allSprite.add(newSegment)
     snakeHead = [x, y]
     appleSpot.remove(snakeHead)
-
 
 redApple = newApple((255, 0, 0))
 allSprite.add(redApple)
@@ -128,7 +130,8 @@ while running:
     for snakeSegment in snake:
         if snakeHead == [snakeSegment.x, snakeSegment.y]:
             running = False
-    newSegment = segment((random.randrange(255), random.randrange(255), random.randrange(255)), snakeHead[0], snakeHead[1])
+    newSegment = segment((random.randrange(255), random.randrange(255), random.randrange(255)), snakeHead[0],
+                         snakeHead[1])
     snake.append(newSegment)
     allSprite.add(newSegment)
     if snakeHead in appleSpot:
@@ -143,7 +146,5 @@ while running:
     allSprite.draw(screen)
     pygame.display.set_caption("wejifnweijfnjisd    Score: " + str(score))
     pygame.display.flip()
-
-
 
 pygame.quit()

@@ -204,8 +204,8 @@ while running:
             if pad.width > 30:
                 pad.width -= 0.2
             reduceWidth = 2
-        hit = pg.sprite.groupcollide(balls, bricks, False, True)
 
+        hit = pg.sprite.groupcollide(balls, bricks, False, True)
         for hitBalls, hitBricks in hit.items():
             score += len(hitBricks)
             hitBalls.bounceDown()
@@ -214,8 +214,8 @@ while running:
                 newBrick = SpecialBrick(specialBrickType[randomType][0], hitBricks[0].rect.x, hitBricks[0].rect.y, specialBrickType[randomType][1])
                 allsprite.add(newBrick)
                 specialBricks.add(newBrick)
-        hitSpecial = pg.sprite.spritecollide(pad, specialBricks, True)
 
+        hitSpecial = pg.sprite.spritecollide(pad, specialBricks, True)
         for hitBricks in hitSpecial:
             if hitBricks.type == "speed":
                 for ball in balls:
