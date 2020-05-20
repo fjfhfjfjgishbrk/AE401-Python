@@ -40,6 +40,7 @@ for a in range(n):
         print("{}g".format(m))
 """
 
+"""
 import sys
 import decimal
 
@@ -49,4 +50,52 @@ for i in inp:
     decimal.getcontext().prec = len(str(a)) + n
     decimal.getcontext().rounding = "ROUND_DOWN"
     print(decimal.Decimal(a) / decimal.Decimal(b))
+"""
 
+"""
+import math
+
+while True:
+    n = int(input())
+    if n == 0:
+        break
+    a = map(int, input().split())
+    b = 1
+    for i in a:
+        b = int(abs(b * i) / math.gcd(b, i))
+    print(b)
+"""
+
+"""
+a, b, c, d, e, f = map(int, input().split())
+if (a*e - b*d) == 0:
+    if (c*e - b*f) == 0 and (a*f - c*d) == 0:
+        print("Too many")
+    else:
+        print("No answer")
+else:
+    x = (c*e - b*f) / (a*e - b*d)
+    y = (a*f - c*d) / (a*e - b*d)
+    print("x={:.2f}".format(x))
+    print("y={:.2f}".format(y))
+    """
+
+"""
+a = input()
+n = int(input())
+for i in range(n):
+    t = input()
+    b = 0
+    c = 0
+    while True:
+        try:
+            d = a.index(t, b)
+            c += 1
+            print(c)
+            b = d + 1
+        except:
+            break
+    print(c)
+"""
+
+print("1|1".replace("|", "je"))
