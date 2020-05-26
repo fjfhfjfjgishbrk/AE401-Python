@@ -98,4 +98,33 @@ for i in range(n):
     print(c)
 """
 
-print("1|1".replace("|", "je"))
+"""
+while 1:
+    try:
+        num = input()
+        if num == "":
+            continue
+        else:
+            num = num.split()
+        n = int(input())
+        for i in range(n):
+            a = 0
+            b = 0
+            tempNum = [str(i) for i in num]
+            guess = input().split()
+            for j in range(len(guess)):
+                if tempNum[j] == guess[j]:
+                    a += 1
+                    guess[j] = "a"
+                    tempNum[j] = "A"
+            for j in range(len(guess)):
+                for k in range(len(num)):
+                    if tempNum[k] == guess[j]:
+                        b += 1
+                        guess[j] = "b"
+                        continue
+            print("{}A{}B".format(str(a), str(b)))
+    except:
+        break
+"""
+
