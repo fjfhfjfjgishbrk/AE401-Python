@@ -128,3 +128,63 @@ while 1:
         break
 """
 
+"""
+import re
+
+n = int(input())
+for i in range(n):
+    text = input()
+    print("Case {}:".format(str(i + 1)), end=" ")
+    a = True
+    b = ""
+    c = 0
+    for j in text:
+        if a:
+            a = False
+            b = j
+        else:
+            if re.match("[0-9]", j):
+                c = c * 10 + int(j)
+            else:
+                print(b*c, end="")
+                b = j
+                c = 0
+    print(b*c)
+"""
+
+
+"""
+while 1:
+    try:
+        n = int(input())
+        score = [int(i) for i in input().split()]
+        score.sort()
+        print(" ".join([str(i) for i in score]))
+        for i in range(len(score)):
+            if score[i] >= 60:
+                if i == 0:
+                    print("best case")
+                    print(score[0])
+                    break
+                else:
+                    print(score[i - 1])
+                    print(score[i])
+                    break
+            if i == len(score) - 1:
+                print(score[-1])
+                print("worst case")
+    except:
+        break
+"""
+
+"""
+a, b = map(int, input().split())
+c = 0
+for i in range(a, b+1):
+    for j in str(i):
+        if j == "2":
+            c += 1
+print(c)
+"""
+
+
