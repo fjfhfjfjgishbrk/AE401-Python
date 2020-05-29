@@ -188,3 +188,64 @@ print(c)
 """
 
 
+"""
+import math
+while 1:
+    try:
+        txt = input()
+        print(txt)
+        txt = txt.lower()
+        a = []
+        b = True
+        for i in txt:
+            if i.isalnum():
+                a.append(i)
+        for i in range(math.floor(len(a)/2)):
+            if a[i] != a[-i-1]:
+                b = False
+        print(a)
+        if b:
+            print("-- is a palindrome")
+        else:
+            print("-- is not a palindrome")
+    except:
+        break
+"""
+
+
+"""
+#'kuti' (10000000), 'lakh' (100000), 'hajar' (1000), 'shata' (100)
+b = ["kuti", 'shata', 'hajar', 'lakh']
+c = 0
+while 1:
+    try:
+        num = input()
+        c += 1
+        print("{}.".format(c), end=" ")
+        if int(num) == 0:
+            print("0", end="")
+        a = []
+        append = True
+        for i in range(1, len(num) + 1):
+            if append:
+                a.append(int(num[-i]))
+                append = False
+            else:
+                a[-1] = a[-1] + int(num[-i]) * 10
+                append = True
+            if len(a) % 4 == 2:
+                append = True
+        for i in range(len(a)-1, -1, -1):
+            if i == 0:
+                if a[i] != 0:
+                    print(a[i], end=" ")
+            elif a[i] == 0 and i % 4 == 0:
+                print(b[i % 4], end=" ")
+            elif a[i] != 0:
+                print(a[i], b[i % 4], end=" ")
+        print()
+    except:
+        break
+"""
+
+
