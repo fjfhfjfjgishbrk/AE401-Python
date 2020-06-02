@@ -248,4 +248,65 @@ while 1:
         break
 """
 
+"""
+while 1:
+    try:
+        r, c, m = map(int, input().split())
+        a = []
+        for i in range(r):
+            a.append([int(j) for j in input().split()])
+        step = [int(i) for i in input().split()]
+        for i in range(len(step)):
+            tempA = []
+            if step[-i-1] == 0:
+                for j in range(len(a[0])):
+                    tempA.append([k[-j-1] for k in a])
+            else:
+                for j in range(len(a)):
+                    tempA.append(a[-j-1])
+            a = tempA
+        print(len(a), len(a[0]))
+        for i in a:
+            print(" ".join([str(j) for j in i]))
+    except:
+        break
+"""
 
+
+"""
+while 1:
+    try:
+        n = int(input())
+        a = [int(i) for i in input().split()]
+        aSum = sum(a)
+        b = 0
+        for i in range(n-1):
+            aSum -= a[i]
+            b += a[i] * aSum
+        print(b)
+    except:
+        break
+"""
+
+
+input()
+a = {}
+while True:
+    b = input()
+    if b != "[1337]":
+        c, d = map(str, b.split(":"))
+        a[c] = d
+    else:
+        break
+while True:
+    b = input()
+    if b != "[3ND]":
+        c = b.split()
+        for i in c:
+            if i in a:
+                print(a[i], end=" ")
+            else:
+                print(i, end=" ")
+        print()
+    else:
+        break
