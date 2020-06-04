@@ -289,6 +289,7 @@ while 1:
 """
 
 
+"""
 input()
 a = {}
 while True:
@@ -310,3 +311,5 @@ while True:
         print()
     else:
         break
+"""
+
