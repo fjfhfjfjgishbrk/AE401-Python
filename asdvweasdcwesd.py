@@ -484,7 +484,7 @@ for i in range(n):
 """
 
 
-
+"""
 import math
 while 1:
     try:
@@ -499,3 +499,258 @@ while 1:
         print("$" + "{:.2f}".format(a))
     except:
         break
+"""
+
+
+"""
+a = "甲乙丙丁戊己庚辛壬癸"
+b = "子丑寅卯辰巳午未申酉戌亥"
+while 1:
+    try:
+        n = int(input())
+        print(a[(n-1744)%10] + b[(n-1744)%12])
+    except:
+        break
+"""
+
+
+"""
+n = int(input())
+for i in range(n):
+    a = [int(i) for i in input().split()]
+    a.sort()
+    sum = len(a) * (a[0] + a[-1]) / 2
+    for j in a:
+        if a.count(j) > 1:
+            repeat = j
+            break
+    miss = repeat + sum - sum(a)
+    print("{} {}".format(miss, repeat))
+"""
+
+"""
+while 1:
+    try:
+        a = input().split()
+        s = 0
+        maxdec = 0
+        for i in a:
+            b, c = map(str, i.split(":"))
+            d = c.split(".")
+            maxdec = max(maxdec, len(d[-1]) if len(d) == 2 else 0)
+            if int(b) % 2 == 1:
+                s += float(c)
+            else:
+                s -= float(c)
+        print(round(s, maxdec) if str(s).split(".")[-1] != "0" else int(s))
+    except:
+        break
+"""
+
+
+"""
+n = int(input())
+a = []
+for i in range(n):
+    l, r = map(int, input().split())
+    include = False
+    for j in a:
+        leftIn = l < j[0] <= r
+        rightIn = l <= j[1] < r
+        if leftIn or rightIn:
+            include = True
+            if leftIn and rightIn:
+                include = False
+                a.remove(j)
+            elif leftIn:
+                j[0] = l
+            elif rightIn:
+                j[1] = r
+            break
+    if not include:
+        a.append([l, r])
+length = 0
+for i in a:
+    length += i[1] - i[0]
+print(length)
+"""
+
+
+"""
+n = int(input())
+for i in range(n):
+    a = input()
+    b = []
+    c = "Yes"
+    for j in a:
+        if j == "(" or j == "[":
+            b.append(j)
+        else:
+            if not b:
+                c = "No"
+                break
+            if b[-1] == "(" and j == ")" or b[-1] == "[" and j == "]":
+                b.pop()
+            else:
+                c = "No"
+                break
+    if b:
+        c = "No"
+    print(c)
+"""
+
+
+"""
+import calendar
+n = int(input())
+s = e = 0
+for i in range(n):
+    a, b, c = map(str, input().split())
+    if a == "January" or a == "February":
+        s = int(c)
+    else:
+        s = int(c) + 1
+    a, b, c = map(str, input().split())
+    if a == "January" or a == "February" and int(b[:-1]) < 29:
+        e = int(c) - 1
+    else:
+        e = int(c)
+    print("Case {}: {}".format(str(i+1), str(calendar.leapdays(s, e+1))))
+"""
+
+
+"""
+a, b = map(int, input().split())
+c = input().split()
+d = []
+e = 0
+f = 0
+g = []
+for i in range(b):
+    if c[i] in d:
+        g.append(c[i])
+        e += 1
+    d.append(c[i])
+    if len(d) > a:
+        if d[0] in g:
+            g.remove(d[0])
+            e -= 1
+        d.pop(0)
+    if e == 0 and len(d) == a:
+        f += 1
+print(f)
+"""
+
+"""
+import sys
+a = {"0 1 0 1": "A", "0 1 1 1": "B", "0 0 1 0": "C", "1 1 0 1": "D", "1 0 0 0": "E", "1 1 0 0": "F"}
+while 1:
+    try:
+        n = int(input())
+        for i in range(n):
+            print(a[sys.stdin.readline().strip()], end="")
+        print()
+    except:
+        break
+"""
+
+
+"""
+import math
+_1_50 = 1 << 50
+def isqrt(x):
+    if x < _1_50:
+        return int(math.sqrt(x))
+    n = int(x)
+    if n <= 1:
+        return n
+    r = 1 << ((n.bit_length() + 1) >> 1)
+    while True:
+        newr = (r + n // r) >> 1
+        if newr >= r:
+            return r
+        r = newr
+n = int(input())
+for i in range(n):
+    input()
+    print(isqrt(int(input())))
+"""
+
+
+"""
+input()
+a = input().split()
+for i in range(len(a)):
+    a[i] = int(a[i][::1])
+a.sort()
+print(a[0])
+"""
+
+
+"""
+def baseN(num, b):
+    return "" if num == 0 else baseN(num // b, b) + "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"[num % b]
+
+while 1:
+    try:
+        a, b, c = map(str, input().split())
+        d = int(a, int(b))
+        print(baseN(d, int(c)))
+    except:
+        break
+"""
+
+
+"""
+n = int(input())
+a = {}
+for i in range(n):
+    b, c = map(str, input().split())
+    a[c] = [b[-1], int(b[0]), i]
+a = {k: v for k, v in sorted(a.items(), key=lambda item: item[1])}
+for i, j in a.items():
+    print("{}: {}".format(j[0], i))
+"""
+
+
+"""
+from itertools import permutations
+while 1:
+    try:
+        n = int(input())
+        a = []
+        for i in range(n):
+            a.append(i+1)
+        b = permutations(a)
+        c = []
+        for i in list(b):
+            c.append(int("".join(str(j) for j in i)))
+        c.sort(reverse= True)
+        for i in c:
+            print(i)
+    except:
+        break
+"""
+
+"""
+input()
+a = "".join(input().split()).strip("09")
+b = 0
+for i in range(1, len(a) - 1):
+    if a[i] == "0" and a[i - 1] != "9" and a[i + 1] != "9":
+        b += 1
+print(b)
+"""
+
+
+n = int(input())
+a = []
+for i in range(n):
+    b = input()
+    if b[0] == "1":
+        a.pop()
+    elif b[0] == "2":
+        print(a[-1])
+    else:
+        b = b.split()
+        a.append(b[-1])

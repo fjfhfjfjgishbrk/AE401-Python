@@ -1,0 +1,12 @@
+C:\Users\hello\source\repos\color\color\bin\Debug\color.exe.config
+C:\Users\hello\source\repos\color\color\bin\Debug\color.exe
+C:\Users\hello\source\repos\color\color\bin\Debug\color.pdb
+C:\Users\hello\source\repos\color\color\bin\Debug\color.xml
+C:\Users\hello\source\repos\color\color\obj\Debug\color.vbprojAssemblyReference.cache
+C:\Users\hello\source\repos\color\color\obj\Debug\color.Form1.resources
+C:\Users\hello\source\repos\color\color\obj\Debug\color.Resources.resources
+C:\Users\hello\source\repos\color\color\obj\Debug\color.vbproj.GenerateResource.cache
+C:\Users\hello\source\repos\color\color\obj\Debug\color.vbproj.CoreCompileInputs.cache
+C:\Users\hello\source\repos\color\color\obj\Debug\color.exe
+C:\Users\hello\source\repos\color\color\obj\Debug\color.xml
+C:\Users\hello\source\repos\color\color\obj\Debug\color.pdb
