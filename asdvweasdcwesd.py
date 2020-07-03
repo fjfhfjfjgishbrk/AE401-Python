@@ -743,6 +743,7 @@ print(b)
 """
 
 
+"""
 n = int(input())
 a = []
 for i in range(n):
@@ -754,3 +755,289 @@ for i in range(n):
     else:
         b = b.split()
         a.append(b[-1])
+"""
+
+
+"""
+while 1:
+    try:
+        n, m = map(int, input().split())
+        a = [" "] * (n * n)
+        x1 = y1 = 0
+        for i in range(m):
+            x2, y2 = map(int, input().split())
+            if x1 == 0 and y1 == 0:
+                x1 = x2
+                y1 = y2
+            if x1 == x2:
+                for j in range(abs(y1-y2) + 1):
+                    a[(min(y1, y2) + j - 1) * n + x1 - 1] = "*"
+            elif y1 == y2:
+                for j in range(abs(x1-x2) + 1):
+                    a[(y1 - 1) * n + min(x1, x2) + j - 1] = "*"
+            x1 = x2
+            y1 = y2
+        print("-" * (n + 2))
+        for i in range(n):
+            print("|", end="")
+            for j in range(n):
+                print(a[i * n + j], end="")
+            print("|")
+        print("-" * (n + 2))
+    except:
+        break
+"""
+
+
+"""
+n = int(input())
+a = input().split()
+a.insert(0, 0)
+for i in range(1, n+1):
+    a[i] = int(a[i-1]) + int(a[i])
+n = int(input())
+for i in range(n):
+    b = int(input())
+    s, e = map(int, input())
+    print(a[e] - a[s-1])
+"""
+
+
+"""
+import math
+a = [1, 1]
+for i in range(2, 93):
+    a.append(a[i-1] + a[i])
+while 1:
+    try:
+        b, c = map(int, input().split())
+        print(a[math.gcd(b, c)])
+    except:
+        break
+"""
+
+
+"""
+def aa(num, p):
+    if num == 1:
+        bomb[1] = p
+        bomb[3] = p
+    elif num == 2:
+        bomb[0] = p
+        bomb[2] = p
+        bomb[4] = p
+    elif num == 3:
+        bomb[1] = p
+        bomb[5] = p
+    elif num == 4:
+        bomb[0] = p
+        bomb[4] = p
+        bomb[6] = p
+    elif num == 5:
+        bomb[1] = p
+        bomb[3] = p
+        bomb[5] = p
+        bomb[7] = p
+    elif num == 6:
+        bomb[2] = p
+        bomb[4] = p
+        bomb[8] = p
+    elif num == 7:
+        bomb[3] = p
+        bomb[7] = p
+    elif num == 8:
+        bomb[6] = p
+        bomb[4] = p
+        bomb[8] = p
+    else:
+        bomb[7] = p
+        bomb[5] = p
+
+
+n = int(input())
+for i in range(n):
+    bomb = [0] * 9
+    a, b, c = map(int, input().split())
+    aa(a, 1)
+    aa(b, 0)
+    aa(c, 0)
+    a = True
+    for j in range(9):
+        if bomb[j]:
+            print(j+1, end=" ")
+            a = False
+    if a:
+        print("Empty")
+    else:
+        print()
+"""
+
+
+"""
+a, b, c = map(int, input().split())
+d = 1
+a = 1 if a > 1 else a
+b = 1 if b > 1 else b
+if (a and b) == c:
+    print("AND")
+    d = 0
+if (a or b) == c:
+    print("OR")
+    d = 0
+if (a != b) == c:
+    print("XOR")
+    d = 0
+if d:
+    print("IMPOSSIBLE")
+"""
+
+
+"""
+a = {}
+n = int(input())
+for i in range(n):
+    b = input().split()
+    if b[0] in a:
+        a[b[0]] += 1
+    else:
+        a[b[0]] = 1
+b = sorted(a.items(), key=lambda x: x[0])
+for i, j in b.items():
+    print(i, j)
+"""
+
+
+"""
+n, q = map(int, input().split())
+a = []
+for i in range(n):
+    a.append(int(input()))
+for i in range(q):
+    b, c = map(int, input().split())
+    print(max(a[b-1:c]) - min(a[b-1:c]))
+"""
+
+
+"""
+n = int(input())
+for i in range(n):
+    a, b, e, c, d, f = map(int, input().split())
+    p = a*d - b*c
+    q = e*d - b*f
+    r = a*f - e*c
+    print(int(q/p), int(r/p))
+"""
+
+
+"""
+n = int(input())
+for i in range(n):
+    c = int(input())
+    a = [int(i) for i in input().split()]
+    b = 0
+    a.sort(reverse=True)
+    for j in range(2, c, 3):
+        b += a[j]
+    print(b)
+"""
+
+
+"""
+import sys
+import re
+n, m = map(int, input().split())
+a = []
+b = []
+o = []
+for i in range(n):
+    s = sys.stdin.readline().strip()
+    a.append(s)
+    c = [j.start() for j in re.finditer("#", s)]
+    b += c
+c = ["X"] * m
+b = list(dict.fromkeys(b))
+for i in b:
+    c[i] = "#"
+for i in a:
+    p = "".join(c) if "#" not in i else "#" * m
+    print(p)
+"""
+
+
+"""
+i = [2, 5, 5, 2, -1, -1]
+
+def f(x):
+    a = h(min(x % 6 + 6, x))
+    b = g(x)
+    if x > a:
+        if x > 5:
+            return f(x % 6 + 5) - 12 * (x // 6 - 1) - a
+        else:
+            return f(x - 1) - a
+    if x < a:
+        return f(b) - b
+    else:
+        return 1
+
+def h(y):
+    if y < 2:
+        return -1
+    else:
+        return i[(y-2) % 6]
+
+def g(z):
+    if z <= 2:
+        return z**2 - 1
+    else:
+        return 2
+while 1:
+    try:
+        n = int(input())
+        print(f(n))
+    except:
+        break
+"""
+
+"""
+from itertools import combinations
+
+b = 0
+while 1:
+    a = [int(i) for i in input().split()]
+    if a[0] == 0:
+        break
+    if b == 0:
+        b = 1
+    else:
+        print()
+    a.pop(0)
+    comb = combinations(a, 6)
+    for i in list(comb):
+        print(" ".join([str(j) for j in i]))
+"""
+
+while 1:
+    try:
+        a = ["BFPV", "CGJKQSXZ", "DT", "L", "MN", "R"]
+        b = input()
+        c = [0]
+        e = 0
+        for i in b:
+            e = 0
+            if c[-1] != 0:
+                if i in a[c[-1] - 1]:
+                    continue
+            for j in range(len(a)):
+                if i in a[j]:
+                    if c[-1] == 0:
+                        c.pop(-1)
+                    c.append(j + 1)
+                    e = 1
+            if e == 0 and c[-1] != 0:
+                c.append(0)
+        if c[-1] == 0:
+            c.pop(-1)
+        print("".join([str(i) for i in c]))
+    except:
+        break
