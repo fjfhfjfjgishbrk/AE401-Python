@@ -13,3 +13,13 @@ while 1:
         print(math.floor(b * math.log10(a) + 1))
     except:
         break
+
+"""
+while True:
+    try:
+        a, b = map(int, input().split())
+        c = str(a ** b)
+        print(len(c))
+    except:
+        break
+"""

@@ -23,6 +23,6 @@ while 1:
                     if j[1] == b[1]:
                         print(" ".join(j))
         input()
-        print()
+
     except:
         break
